@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 /*Flowbite Default theme*/
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "flowbite/src/themes/default";
 
 @plugin "flowbite/plugin";
@@ -15,10 +14,11 @@
 
     /*Background Colors*/
     --color-primary-bg: #fcf8fa;
-    --color-secondary-bg: #f6f3f4;
+    --color-secondary-bg: #F6F3F4;
     --color-footer-bg: #FFFFFF;
     --color-sidebar-dropdown-menu-color: #e0e0e0;
     --color-dark-bg: #000000;
+    --color-image-bg: #EAE7E9;
 
     /*Fonts*/
     --font-body-font: "Inter", sans-serif;

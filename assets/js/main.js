@@ -83,3 +83,64 @@ loadCategories();
 
 /*==================================================*/
 
+async function fetchProducts() {
+    try {
+        const response = await axios.get("https://dummyjson.com/products?limit=10");
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        return [];
+    }
+}
+
+async function loadProducts() {
+    const data = await fetchProducts();
+    const products = data.products;
+
+    const productsSection = document.querySelector(".products");
+    if (!productsSection) return;
+    console.log(products);
+
+    productsSection.innerHTML = products.map(product => {
+        let stars = "";
+        const filledStars = Math.round(product.rating);
+
+        for (let i = 0; i < 5; i++) {
+            if (i < filledStars) {
+                stars += `<i class="fa-solid fa-star"></i>`;
+            } else {
+                stars += `<i class="fa-regular fa-star"></i>`;
+            }
+        }
+
+        return `
+            <div class="product stack gap-4 group/product">
+                <!--image-->
+                <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg">
+                    <a href="/product=${product.id}">
+                        <img src="${product.thumbnail}" alt="${product.title}"
+                        class="w-full object-cover translate-y-6 transition-transform duration-500 ease-out group-hover/product:scale-110"/>
+                    </a>
+                </div>
+
+                <!--product info-->
+                <div class="stack gap-1 items-start w-full group">
+                    <div class="stars text-primary text-xs xs:text-sm row gap-1">
+                        ${stars}
+                        <span>${product.rating}</span>
+                    </div>
+                    <h3 class="text-base font-regular text-primary-foreground group-hover/product:text-primary transition-all duration-200 ease-in-out">
+                        <a href="/product=${product.id}">
+                            ${product.title}
+                        </a>
+                    </h3>
+                    <p class="text-base font-bold">
+                        $${product.price.toFixed(2)}
+                    </p>
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
+loadProducts();
