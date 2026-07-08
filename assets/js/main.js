@@ -36,6 +36,8 @@ async function loadCategories() {
     if (!categoriesNavlink) return;
     const categoriesSidebar = document.querySelector(".categories-sidebar");
     if (!categoriesSidebar) return;
+    const categoriesSection = document.querySelector(".categories");
+    if (!categoriesSection) return;
 
     categoriesNavlink.innerHTML = categoryColumns.map(column => {
         return `
@@ -62,6 +64,17 @@ async function loadCategories() {
                     ${category}
                 </a>
             </li>
+        `;
+    }).join("");
+
+    categoriesSection.innerHTML = categories.map(category => {
+        return `
+            <div class="category uppercase w-full py-8 px-1 text-base border border-[#C6C6CD] rounded-[4px] center
+            hover:border-dark-bg hover:bg-dark-bg/5 transition-all duration-200 ease-in-out">
+                <a href="/category=${category}" class="text-inherit no-underline">
+                    ${category}
+                </a>
+            </div>
         `;
     }).join("");
 }
