@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+/*Flowbite Default theme*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "flowbite/src/themes/default";
+
+@plugin "flowbite/plugin";
+
+@source "../../node_modules/flowbite";
+
+@theme{
+    /*Colors*/
+    --color-primary: #006C4A;
+    --color-secondary: #000000;
+
+    /*Background Colors*/
+    --color-primary-bg: #fcf8fa;
+    --color-secondary-bg: #f6f3f4;
+    --color-footer-bg: #FFFFFF;
+    --color-sidebar-dropdown-menu-color: #e0e0e0;
+
+    /*Fonts*/
+    --font-body-font: "Inter", sans-serif;
+    --font-heading-font: "Inter", sans-serif;
+
+    /*Foreground Colors*/
+    --color-primary-foreground: #000000;
+    --color-secondary-foreground: #FFFFFF;
+    --color-navlink-foreground: #787778;
+    --color-heading-foreground: #1B1B1D;
+    --color-body-foreground: #45474C;
+    --color-muted-foreground: #76777D;
+
+    /*Breakpoints*/
+    --breakpoint-xs: 450px;
+}
+
+@layer base{
+    body{
+        @apply bg-primary-bg font-body-font text-primary-foreground;
+    }
+
+    h1, 
+    h2, 
+    h3, 
+    h4, 
+    h5, 
+    h6{
+        font-family: var(--font-heading-font);
+    }
+
+    img{
+        @apply max-w-full;
+    }
+
+    button{
+        cursor: pointer;
+    }
+}
+
+@utility test{
+    @apply border border-red-500;
+}
+
+@utility container{
+    @apply mx-auto px-10 h-full xs:max-w-135 sm:max-w-135 md:max-w-180 lg:max-w-7xl;
+}
+
+@utility row{
+    @apply flex flex-row items-center gap-2;
+}
+
+@utility stack{
+    @apply flex flex-col items-center gap-2;
+}
+
+@utility center{
+    @apply flex items-center justify-center;
+}
+
+@utility circle{
+    @apply rounded-full;
+}
+
+@utility nav-link{
+    @apply capitalize py-2 text-navlink-foreground font-normal text-base hover:text-primary-foreground transition-all 
+    duration-100 ease-in-out cursor-pointer;
+}
