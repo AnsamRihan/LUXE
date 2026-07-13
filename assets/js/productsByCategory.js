@@ -85,40 +85,60 @@ loadeBreadcrumbCategoryName();
 
 /*----------------get products and pagination depending on a category----------------*/
 
-const productsSection = document.querySelector(".products-section");
 const pagination = document.querySelector(".pagination");
 
 const productsPerPage = 10;
 let currentPage = 1;
 let totalProducts = 0;
-const sortBy = "title";
-const order = "asc";
+let sortBy = localStorage.getItem("sortBy") || "title";
+let order = localStorage.getItem("order") || "asc";
 
 //filter by select
-const sortBy = document.querySelector("#sortBy");
+const sortBy_select = document.querySelector("#sortBy");
 
-sortBy.addEventListener("change", () => {
-    switch (sortBy.value) {
+function loadSelectedSort() {
+    if (sortBy === "title" && order === "asc") {
+        sortBy_select.value = "az";
+    } 
+    else if (sortBy === "title" && order === "desc") {
+        sortBy_select.value = "za";
+    } 
+    else if (sortBy === "price" && order === "asc") {
+        sortBy_select.value = "lowToHigh";
+    } 
+    else if (sortBy === "price" && order === "desc") {
+        sortBy_select.value = "highToLow";
+    }
+}
+
+loadSelectedSort();
+
+sortBy_select.addEventListener("change", () => {
+    switch (sortBy_select.value) {
         case "az":
             sortBy = "title";
             order = "asc";
             break;
-
         case "za":
             sortBy = "title";
             order = "desc";
             break;
 
-        case "priceLow":
+        case "lowToHigh":
             sortBy = "price";
             order = "asc";
             break;
 
-        case "priceHigh":
+        case "highToLow":
             sortBy = "price";
             order = "desc";
             break;
     }
+
+    // Save selection
+    localStorage.setItem("sortBy", sortBy);
+    localStorage.setItem("order", order);
+    loadProducts();
 });
 
 // Fetch products by Category from API
@@ -142,3 +162,54 @@ async function fetchProducts(page = 1) {
     }
 }
 
+async function loadProducts() {
+    const data = await fetchProducts(currentPage);
+    totalProducts = data.total;
+    const products = data.products;
+
+    const productsSection = document.querySelector(".products");
+    if (!productsSection) return;
+
+    productsSection.innerHTML = products.map(product => {
+        let stars = "";
+        const filledStars = Math.round(product.rating);
+
+        for (let i = 0; i < 5; i++) {
+            if (i < filledStars) {
+                stars += `<i class="fa-solid fa-star"></i>`;
+            } else {
+                stars += `<i class="fa-regular fa-star"></i>`;
+            }
+        }
+
+        return `
+            <div class="product stack gap-4  group/product">
+                <!--image-->
+                <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg">
+                    <a href="product.html?product=${product.id}">
+                        <img src="${product.thumbnail}" alt="${product.title}"
+                        class="w-full object-cover translate-y-6 transition-transform duration-500 ease-out group-hover/product:scale-110"/>
+                    </a>
+                </div>
+
+                <!--product info-->
+                <div class="stack gap-1 items-start w-full group">
+                    <div class="stars text-primary text-xs xs:text-sm row gap-1">
+                        ${stars}
+                        <span>${product.rating}</span>
+                    </div>
+                    <h3 class="text-base font-regular text-primary-foreground group-hover/product:text-primary transition-all duration-200 ease-in-out">
+                        <a href="product.html?product=${product.id}">
+                            ${product.title}
+                        </a>
+                    </h3>
+                    <p class="text-base font-bold">
+                        $${product.price.toFixed(2)}
+                    </p>
+                </div>
+            </div>
+        `;
+    }).join("");
+}
+
+loadProducts();

@@ -1653,23 +1653,8 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-30 {
-    width: calc(var(--spacing) * 30);
-  }
-  .w-40 {
-    width: calc(var(--spacing) * 40);
-  }
-  .w-43 {
-    width: calc(var(--spacing) * 43);
-  }
-  .w-44 {
-    width: calc(var(--spacing) * 44);
-  }
   .w-45 {
     width: calc(var(--spacing) * 45);
-  }
-  .w-48 {
-    width: calc(var(--spacing) * 48);
   }
   .w-64 {
     width: calc(var(--spacing) * 64);
@@ -2380,9 +2365,6 @@
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
   }
-  .px-4\.5 {
-    padding-inline: calc(var(--spacing) * 4.5);
-  }
   .px-5 {
     padding-inline: calc(var(--spacing) * 5);
   }
@@ -2476,9 +2458,6 @@
   }
   .pr-5\.5 {
     padding-right: calc(var(--spacing) * 5.5);
-  }
-  .pr-6 {
-    padding-right: calc(var(--spacing) * 6);
   }
   .pb-6 {
     padding-bottom: calc(var(--spacing) * 6);
@@ -2644,10 +2623,6 @@
     --tw-tracking: 0.4px;
     letter-spacing: 0.4px;
   }
-  .tracking-\[0\.5px\] {
-    --tw-tracking: 0.5px;
-    letter-spacing: 0.5px;
-  }
   .tracking-\[0\.7px\] {
     --tw-tracking: 0.7px;
     letter-spacing: 0.7px;
@@ -2770,10 +2745,6 @@
   }
   .shadow-sm {
     --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
-    box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
-  }
-  .shadow-xs {
-    --tw-shadow: 0 1px 2px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.05));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   .ring-0 {
@@ -3005,6 +2976,12 @@
       z-index: 10;
     }
   }
+  .focus\:ring-0 {
+    &:focus {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
   .focus\:ring-1 {
     &:focus {
       --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
@@ -3064,31 +3041,6 @@
       width: 100%;
     }
   }
-  .xxs\:w-2 {
-    @media (width >= 350px) {
-      width: calc(var(--spacing) * 2);
-    }
-  }
-  .xxs\:w-20 {
-    @media (width >= 350px) {
-      width: calc(var(--spacing) * 20);
-    }
-  }
-  .xxs\:w-48 {
-    @media (width >= 350px) {
-      width: calc(var(--spacing) * 48);
-    }
-  }
-  .xxs\:w-50 {
-    @media (width >= 350px) {
-      width: calc(var(--spacing) * 50);
-    }
-  }
-  .xxs\:w-51 {
-    @media (width >= 350px) {
-      width: calc(var(--spacing) * 51);
-    }
-  }
   .xs\:row {
     @media (width >= 450px) {
       display: flex;
@@ -3121,11 +3073,6 @@
   .sm\:grid {
     @media (width >= 40rem) {
       display: grid;
-    }
-  }
-  .sm\:w-48 {
-    @media (width >= 40rem) {
-      width: calc(var(--spacing) * 48);
     }
   }
   .sm\:max-w-\[90\%\] {
