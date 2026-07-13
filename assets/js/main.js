@@ -24,7 +24,7 @@ function chunkArray(array, size) {
 async function loadCategories() {
     const categories = await fetchCategories();
 
-    const shopDropdownHover = document.getElementById("shopDropdownHover");
+    const shopDropdownHover = document.querySelector("#shopDropdownHover");
     
     const categoryColumns = chunkArray(categories, 6);
     shopDropdownHover.innerHTML = `
@@ -116,7 +116,7 @@ async function loadProducts() {
             <div class="product stack gap-4  group/product">
                 <!--image-->
                 <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg">
-                    <a href="/product=${product.id}">
+                    <a href="product.html?product=${product.id}">
                         <img src="${product.thumbnail}" alt="${product.title}"
                         class="w-full object-cover translate-y-6 transition-transform duration-500 ease-out group-hover/product:scale-110"/>
                     </a>
@@ -129,7 +129,7 @@ async function loadProducts() {
                         <span>${product.rating}</span>
                     </div>
                     <h3 class="text-base font-regular text-primary-foreground group-hover/product:text-primary transition-all duration-200 ease-in-out">
-                        <a href="/product=${product.id}">
+                        <a href="product.html?product=${product.id}">
                             ${product.title}
                         </a>
                     </h3>

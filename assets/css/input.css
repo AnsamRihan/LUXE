@@ -35,6 +35,7 @@
 
     /*Breakpoints*/
     --breakpoint-xs: 450px;
+    --breakpoint-xxs: 350px;
 }
 
 @layer base{
