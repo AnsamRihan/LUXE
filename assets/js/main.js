@@ -45,7 +45,7 @@ async function loadCategories() {
                 ${column.map(category => {
                     return `
                         <li>
-                            <a href="/category=${category}" 
+                            <a href="products.html?category=${category}" 
                                class="nav-link gap-1.5">
                                 ${category}
                             </a>
@@ -59,7 +59,7 @@ async function loadCategories() {
     categoriesSidebar.innerHTML = categories.map(category => {
         return `
             <li>
-                <a href="/category=${category}"
+                <a href="products.html?category=${category}"
                     class="nav-link w-full flex items-center px-4 py-2 border-b border-[#d2d2d2]">
                     ${category}
                 </a>
@@ -71,7 +71,7 @@ async function loadCategories() {
         return `
             <div class="category uppercase w-full py-8 px-1 text-base border border-[#C6C6CD] rounded-[4px] center
             hover:border-dark-bg hover:bg-dark-bg/5 transition-all duration-200 ease-in-out">
-                <a href="/category=${category}" class="text-inherit no-underline">
+                <a href="products.html?category=${category}" class="text-inherit no-underline">
                     ${category}
                 </a>
             </div>
@@ -99,7 +99,6 @@ async function loadProducts() {
 
     const productsSection = document.querySelector(".products");
     if (!productsSection) return;
-    console.log(products);
 
     productsSection.innerHTML = products.map(product => {
         let stars = "";
@@ -114,7 +113,7 @@ async function loadProducts() {
         }
 
         return `
-            <div class="product stack gap-4 group/product">
+            <div class="product stack gap-4  group/product">
                 <!--image-->
                 <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg">
                     <a href="/product=${product.id}">
