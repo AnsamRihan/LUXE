@@ -77,3 +77,11 @@ loadCategories();
 
 /*----------------get products and pagination depending on a category----------------*/
 
+const loadeBreadcrumbCategoryName = () => {
+    const formattedCategory = category.replaceAll("-", " ");
+    document.querySelectorAll(".category-name").forEach(categoryTitle => {
+        categoryTitle.textContent = formattedCategory;
+    });
+}
+
+loadeBreadcrumbCategoryName();

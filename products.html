@@ -203,6 +203,39 @@
         </div>
     </header>
 
+    <main>
+        <!--breadcrumb, cetegory & info-->
+        <section class="py-12 bg-primary-bg">
+            <div class="container stack gap-4 items-start">
+                <!--Breadcrumb nav section-->
+                <nav class="w-full">
+                    <ol class="flex gap-2">
+                        <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
+                            <a href="./index.html" class="capitalize">
+                                Home
+                            </a>
+                            <i class="fa-solid fa-angle-right"></i>
+                        </li>
+
+                        <li class="flex items-center gap-2">
+                            <span class="capitalize text-primary-foreground text-base font-medium category-name">
+                            </span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!--name & info-->
+                <div class="w-full sm:max-w-[90%] lg:max-w-[60%] xl:max-w-[50%] stack items-start">
+                    <h1 class="category-name text-primary-foreground text-[48px] font-bold leading-[60px] tracking-[-0.96px]
+                    capitalize"></h1>
+                    <p class="text-body-foreground text-base">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, itaque nam aliquid fugit 
+                        distinctio corporis quae impedit.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer class="bg-footer-bg pt-16 pb-8 border-t border-border-color">
         <div class="container stack gap-16">
@@ -341,7 +374,7 @@
         </div>
     </footer>
 
-    
+
     <!--axios cdn-->
     <script src="https://cdn.jsdelivr.net/npm/axios@1.18.1/dist/axios.min.js"></script>
     <!-- Flowbite JS -->
