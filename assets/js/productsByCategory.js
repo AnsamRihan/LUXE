@@ -83,7 +83,7 @@ const loadeBreadcrumbCategoryName = () => {
 
 loadeBreadcrumbCategoryName();
 
-/*----------------get products and pagination depending on a category----------------*/
+/*----------------get products depending on a category----------------*/
 
 const pagination = document.querySelector(".pagination");
 

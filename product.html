@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE</title>
+
+    <!--Font (Inter)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Tailwind CSS -->
+    <link href="./assets/css/output.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header h-20 sticky top-0 z-50 bg-primary-bg border-b border-border-color shadow-md">
+        <div class="container">
+            <nav class="h-full row justify-between">
+                <!-- Logo && Navlinks/sidebar-->
+                <div class="h-full flex items-center gap-4 md:gap-12">
+                    <!--Logo-->
+                    <div class="logo order-2 md:order-1">
+                        <a href="./index.html" class="text-base lg:text-lg tracking-tighter font-extrabold text-primary-foreground">
+                            LUXE
+                        </a>
+                    </div>
+
+                    <!-- Navlinks && sidebar-->
+                    <div class="list h-full row items-center order-1 md:order-2">
+
+                        <!--Sidebar button-->
+                        <button type="button" data-drawer-target="sidebar-drawer" data-drawer-show="sidebar-drawer"
+                            data-drawer-body-scrolling="false" aria-controls="sidebar-drawer"
+                            class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-lg md:hidden 
+                            hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-default">
+                            <span class="sr-only">Open main menu</span>
+                            <img src="./assets/images/global/list-icon.svg" alt="Open main menu" class="w-7" />
+                        </button>
+
+                         <!--Navbar links-->
+                        <div class="h-full hidden md:block">
+                            <ul class="row h-full gap-8 text-base">
+
+                                <!--Shop navbar link-->
+                                <li>
+                                    <a id="shopDropdownButton" data-dropdown-toggle="shopDropdownHover"
+                                        data-dropdown-trigger="hover" href="#" class="nav-link border border-transparent focus:ring-1
+                                        focus:ring-primary leading-5 focus:outline-none group/line relative text-primary-foreground"
+                                        aria-current="page">
+                                        <div class="inline-flex items-center">
+                                            Shop
+                                            <svg class="w-4 h-4 ms-0.5 -me-0.5" aria-hidden="true"
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                                viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" d="m19 9-7 7-7-7" />
+                                            </svg>
+                                        </div>
+                                        <hr
+                                            class="absolute bottom-0 hidden border-t-2 border-primary-foreground w-0 group-hover/line:block group-hover/line:w-full transition-all duration-500">
+                                    </a>
+                                </li>
+
+                                <!--New Arrivals navbar link-->
+                                <li>
+                                    <a href="#" class="nav-link border border-transparent focus:ring-1 focus:ring-primary leading-5 focus:outline-none group/line relative">
+                                        <div class="inline-flex items-center">
+                                            New Arrivals
+                                        </div>
+                                        <hr
+                                            class="absolute bottom-0 hidden border-t-2 border-primary-foreground w-0 group-hover/line:block group-hover/line:w-full transition-all duration-500">
+                                    </a>
+                                </li>
+
+                                <!--Sale navbar link-->
+                                <li>
+                                    <a href="#" class="nav-link border border-transparent focus:ring-1 focus:ring-primary leading-5 focus:outline-none group/line relative">
+                                        <div class="inline-flex items-center">
+                                            Sale
+                                        </div>
+                                        <hr
+                                            class="absolute bottom-0 hidden border-t-2 border-primary-foreground w-0 group-hover/line:block group-hover/line:w-full transition-all duration-500">
+                                    </a>
+                                </li>
+
+                                <!--Journal navbar link-->
+                                <li>
+                                    <a href="#" class="nav-link border border-transparent focus:ring-1 focus:ring-primary leading-5 focus:outline-none group/line relative">
+                                        <div class="inline-flex items-center">
+                                            Journal
+                                        </div>
+                                        <hr
+                                            class="absolute bottom-0 hidden border-t-2 border-primary-foreground w-0 group-hover/line:block group-hover/line:w-full transition-all duration-500">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                         <!--Sidebar-->
+                        <div id="sidebar-drawer" class="fixed top-0 left-0 z-40 h-screen transition-transform 
+                            -translate-x-full bg-primary-bg w-75 border-e border-default grid grid-rows-[68px_1fr]"
+                            tabindex="-1" aria-labelledby="sidebar-drawer-label">
+                            
+                             <!--LOGO + exit button inside sidebar-->
+                            <div class="z-30 w-full px-4 py-4 bg-primary-bg flex items-center justify-between">
+                                <a href="./index.html" class="flex items-center max-w-37.5 text-lg tracking-tighter font-extrabold text-primary-foreground">
+                                    LUXE
+                                </a>
+                                <button type="button" data-drawer-hide="sidebar-drawer" aria-controls="sidebar-drawer"
+                                    class="text-sidebar-foreground bg-transparent hover:text-primary-foreground w-9 h-9 flex items-center justify-center">
+                                    <svg class="w-6.25 h-6.25" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                            stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                    </svg>
+                                    <span class="sr-only">Close menu</span>
+                                </button>
+                            </div>
+
+                             <!--navlink list-->
+                            <div class="overflow-y-auto">
+                                <ul class="font-semibold text-[15px]">
+                                     <!--Shop sidebar menu-->
+                                    <li>
+                                        <div class="flex items-center w-full justify-between px-4 py-2 group border-b border-[#d2d2d2] nav-link">
+                                            <a href="#" class="flex-1 text-left whitespace-nowrap">
+                                                Shop
+                                            </a>
+                                            <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                aria-controls="shopDropdown" data-collapse-toggle="shopDropdown">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" d="m19 9-7 7-7-7" />
+                                            </svg>
+                                        </div>
+
+                                        <div id="shopDropdown" class="hidden space-y-4 bg-sidebar-dropdown-menu-color">
+                                            <ul class="categories-sidebar">
+                                                
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="nav-link w-full flex items-center px-4 py-2 border-b border-[#d2d2d2]">
+                                            New Arrivals
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="nav-link w-full flex items-center px-4 py-2 border-b border-[#d2d2d2]">
+                                            Sale
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="nav-link w-full flex items-center px-4 py-2 border-b border-[#d2d2d2]">
+                                            Journal
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Icons -->
+                <div class="icons row justify-center gap-4">
+                    <!--User Icon-->
+                    <div class="user-icon">
+                        <a href="#" class="h-full flex items-center w-4 lg:w-5">
+                            <img src="./assets/images/global/user.svg" alt="login Icon" class="w-full">
+                        </a>
+                    </div>
+
+                    <!--Cart Icon-->
+                    <div class="relative">
+                        <button class="h-fyll flex items-center w-4 lg:w-5">
+                            <img src="./assets/images/global/shopping-bag.svg" alt="Shopping cart Icon" class="w-full">
+                        </button>
+                        <div class="absolute flex items-center justify-center w-4.5 h-4.5 circle
+                        text-[10.5px] font-bold text-secondary-foreground bg-primary
+                        -top-2 -right-3">
+                            1
+                        </div>
+                    </div>
+                </div>
+
+                <!--Shop navbar link dropdown menu-->
+                <div id="shopDropdownHover" class="hidden mt-1 bg-primary-bg border-none border-y min-w-screen pt-5 shadow-lg">
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+
+    <footer class="bg-footer-bg pt-16 pb-8 border-t border-border-color">
+        <div class="container stack gap-16">
+             <!--Info and links section-->
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="stack items-start gap-6">
+                    <!--Logo-->
+                    <a href="./index.html" class="text-base lg:text-lg tracking-tighter leading-6 font-extrabold text-primary-foreground">
+                        LUXE
+                    </a>
+
+                    <p class="text-base text-body-foreground max-w-9/10">
+                        Redefining modern luxury through minimalist design and ethical craftsmanship. Since 2024.
+                    </p>
+
+                    <div class="row gap-4">
+                        <img src="./assets/images/global/Icon.svg" alt="icon image">
+                        <img src="./assets/images/global/earth-icon.svg" alt="icon image">
+                        <img src="./assets/images/global/camera.svg" alt="icon image">
+                    </div>
+                </div>
+
+                <div class="stack items-start gap-6">
+                    <h3 class="capitalize font-semibold text-base text-heading-foreground">
+                        shopping
+                    </h3>
+
+                    <ul class="stack items-start gap-3 text-body-foreground text-base font-normal">
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                All Categories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                New Arrivals
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Best Sellers
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Sale
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="stack items-start gap-6">
+                    <h3 class="capitalize font-semibold text-base text-heading-foreground">
+                        Support
+                    </h3>
+
+                    <ul class="stack items-start gap-3 text-body-foreground text-base font-normal">
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Shipping Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Returns & Exchanges
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                FAQ
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="stack items-start gap-6">
+                    <h3 class="capitalize font-semibold text-base text-heading-foreground">
+                        Company
+                    </h3>
+
+                    <ul class="stack items-start gap-3 text-body-foreground text-base font-normal">
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                               Journal
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Sustainability
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                                Careers
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--policy & services section-->
+            <div class="w-full flex flex-col sm:flex-row gap-4 justify-between pt-8 border-t border-border-color">
+                <!-- Left content -->
+                <div class="flex flex-wrap">
+                    <p class="text-[15px] font-medium text-body-foreground">
+                        © 2024 LUXE Ecommerce. All rights reserved.
+                    </p>
+                </div>
+
+                <!-- Right content -->
+                <div class="sm:grid sm:grid-cols-3 sm:gap-4 text-base text-body-foreground text-start sm:text-end
+                            flex gap-8 lg:flex lg:gap-8">
+                    <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                        Privacy Policy
+                    </a>
+
+                    <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                        Terms of Service
+                    </a>
+
+                    <a href="#" class="capitalize hover:text-primary-foreground transition duration-100 ease-in-out">
+                        Cookies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!--axios cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.18.1/dist/axios.min.js"></script>
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.5.1/flowbite.min.js"></script>
+    <script src="./assets/js/product.js"></script>
+</body>
+</html>
