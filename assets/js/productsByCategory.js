@@ -150,7 +150,6 @@ async function fetchProducts(page = 1) {
             `https://dummyjson.com/products/category/${category}?limit=${productsPerPage}&skip=${skip}&sortBy=${sortBy}&order=${order}`
         );
 
-        console.log(response.data);
         return response.data;
 
     } catch (error) {
@@ -181,6 +180,8 @@ async function loadProducts() {
                 stars += `<i class="fa-regular fa-star"></i>`;
             }
         }
+
+        updatePaginationButtons();
 
         return `
             <div class="product stack gap-4  group/product">
@@ -216,3 +217,29 @@ loadProducts();
 
 /*----------------Pagination----------------*/
 
+const prevBtn = document.querySelector("#prevBtn");
+const nextBtn = document.querySelector("#nextBtn");
+
+function updatePaginationButtons() {
+    const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+    prevBtn.classList.toggle("text-[#c5c3c6]", currentPage === 1);
+    nextBtn.classList.toggle("text-[#c5c3c6]", currentPage === totalPages);
+}
+
+prevBtn.addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        loadProducts(currentPage);
+    }
+});
+
+
+nextBtn.addEventListener("click", () => {
+    const totalPages = Math.ceil(totalProducts / productsPerPage);
+
+    if (currentPage < totalPages) {
+        currentPage++;
+        loadProducts(currentPage);
+    }
+});
