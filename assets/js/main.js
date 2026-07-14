@@ -1,6 +1,6 @@
 "use strict";
 
-async function fetchCategories() {
+const fetchCategories = async () => {
     try {
         const response = await axios.get("https://dummyjson.com/products/category-list");
         return response.data;
@@ -11,7 +11,7 @@ async function fetchCategories() {
 }
 
 // Split array into groups of a specific size
-function chunkArray(array, size) {
+const chunkArray = (array, size) => {
     const chunks = [];
 
     for (let i = 0; i < array.length; i += size) {
@@ -21,7 +21,7 @@ function chunkArray(array, size) {
     return chunks;
 }
 
-async function loadCategories() {
+const loadCategories = async () => {
     const categories = await fetchCategories();
 
     const shopDropdownHover = document.querySelector("#shopDropdownHover");
@@ -83,7 +83,7 @@ loadCategories();
 
 /*==================================================*/
 
-async function fetchProducts() {
+const fetchProducts = async () => {
     try {
         const response = await axios.get("https://dummyjson.com/products?limit=10");
         return response.data;
@@ -93,7 +93,7 @@ async function fetchProducts() {
     }
 }
 
-async function loadProducts() {
+const loadProducts = async () => {
     const data = await fetchProducts();
     const products = data.products;
 

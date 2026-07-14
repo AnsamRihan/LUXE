@@ -5,7 +5,7 @@ const category = params.get('category');
 
 /*----------------get categories for header (navbar)----------------*/
 
-async function fetchCategories() {
+const fetchCategories = async () => {
     try {
         const response = await axios.get("https://dummyjson.com/products/category-list");
         return response.data;
@@ -16,7 +16,7 @@ async function fetchCategories() {
 }
 
 // Split array into groups of a specific size
-function chunkArray(array, size) {
+const chunkArray = (array, size) => {
     const chunks = [];
 
     for (let i = 0; i < array.length; i += size) {
@@ -26,8 +26,7 @@ function chunkArray(array, size) {
     return chunks;
 }
 
-
-async function loadCategories() {
+const loadCategories = async () => {
     const categories = await fetchCategories();
 
     const shopDropdownHover = document.querySelector("#shopDropdownHover");
@@ -96,7 +95,7 @@ let order = localStorage.getItem("order") || "asc";
 //filter by select
 const sortBy_select = document.querySelector("#sortBy");
 
-function loadSelectedSort() {
+const loadSelectedSort = () => {
     if (sortBy === "title" && order === "asc") {
         sortBy_select.value = "az";
     } 
@@ -142,7 +141,7 @@ sortBy_select.addEventListener("change", () => {
 });
 
 // Fetch products by Category from API
-async function fetchProducts(page = 1) {
+const fetchProducts = async (page = 1) => {
     try {
         const skip = (page - 1) * productsPerPage;
 
@@ -161,7 +160,7 @@ async function fetchProducts(page = 1) {
     }
 }
 
-async function loadProducts() {
+const loadProducts = async () => {
     const data = await fetchProducts(currentPage);
     totalProducts = data.total;
     const products = data.products;
@@ -220,7 +219,7 @@ loadProducts();
 const prevBtn = document.querySelector("#prevBtn");
 const nextBtn = document.querySelector("#nextBtn");
 
-function updatePaginationButtons() {
+const updatePaginationButtons = () => {
     const totalPages = Math.ceil(totalProducts / productsPerPage);
 
     prevBtn.classList.toggle("text-[#c5c3c6]", currentPage === 1);
@@ -233,7 +232,6 @@ prevBtn.addEventListener("click", () => {
         loadProducts(currentPage);
     }
 });
-
 
 nextBtn.addEventListener("click", () => {
     const totalPages = Math.ceil(totalProducts / productsPerPage);

@@ -5,7 +5,7 @@ const productID = params.get('product');
 
 /*----------------get categories for header (navbar)----------------*/
 
-async function fetchCategories() {
+const fetchCategories = async () => {
     try {
         const response = await axios.get("https://dummyjson.com/products/category-list");
         return response.data;
@@ -16,7 +16,7 @@ async function fetchCategories() {
 }
 
 // Split array into groups of a specific size
-function chunkArray(array, size) {
+const chunkArray = (array, size) => {
     const chunks = [];
 
     for (let i = 0; i < array.length; i += size) {
@@ -26,8 +26,7 @@ function chunkArray(array, size) {
     return chunks;
 }
 
-
-async function loadCategories() {
+const loadCategories = async () => {
     const categories = await fetchCategories();
 
     const shopDropdownHover = document.querySelector("#shopDropdownHover");
@@ -73,3 +72,4 @@ async function loadCategories() {
 }
 
 loadCategories();
+
