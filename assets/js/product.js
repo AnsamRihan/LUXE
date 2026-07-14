@@ -177,6 +177,9 @@ const loadProduct = async () => {
     const productStockTag = document.querySelector(".stock-availability");
     productStockTag.textContent = product.availabilityStatus;
 
+    /*Product Description*/
+    const productDescriptionTag = document.querySelector(".product-description");
+    productDescriptionTag.textContent = product.description;
 }
 
 loadProduct();
