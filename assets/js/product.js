@@ -73,3 +73,32 @@ const loadCategories = async () => {
 
 loadCategories();
 
+/*----------------get product----------------*/
+
+// Fetch product from API
+const fetchProduct = async () => {
+    try {
+        const response = await axios.get(
+            `https://dummyjson.com/products/${productID}`
+        );
+        return response.data;
+
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        return [];
+    }
+}
+
+const loadProduct = async () => {
+    const product = await fetchProduct();
+    console.log(product);
+
+    const productNameLink = document.querySelector(".product-name");
+    productNameLink.textContent = product.title;
+
+    const productCategoryLink = document.querySelector(".product-category");
+    productCategoryLink.textContent = product.category;
+    productCategoryLink.href = `products.html?category=${product.category}`;
+}
+
+loadProduct();
