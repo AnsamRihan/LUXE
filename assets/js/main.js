@@ -115,7 +115,7 @@ async function loadProducts() {
         return `
             <div class="product stack gap-4  group/product">
                 <!--image-->
-                <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg">
+                <div class="overflow-hidden aspect-[4/5] group rounded-[4px] border border-[#C6C6CD] bg-image-bg w-full">
                     <a href="product.html?product=${product.id}">
                         <img src="${product.thumbnail}" alt="${product.title}"
                         class="w-full object-cover translate-y-6 transition-transform duration-500 ease-out group-hover/product:scale-110"/>
@@ -124,16 +124,16 @@ async function loadProducts() {
 
                 <!--product info-->
                 <div class="stack gap-1 items-start w-full group">
-                    <div class="stars text-primary text-xs xs:text-sm row gap-1">
+                    <div class="stars text-primary text-[12px] sm:text-sm row gap-1">
                         ${stars}
                         <span>${product.rating}</span>
                     </div>
-                    <h3 class="text-base font-regular text-primary-foreground group-hover/product:text-primary transition-all duration-200 ease-in-out">
+                    <h3 class="text-[14px] lg:text-[15.5px] font-regular text-primary-foreground group-hover/product:text-primary transition-all duration-200 ease-in-out">
                         <a href="product.html?product=${product.id}">
                             ${product.title}
                         </a>
                     </h3>
-                    <p class="text-base font-bold">
+                    <p class="text-[14px] lg:text-[15px] font-bold">
                         $${product.price.toFixed(2)}
                     </p>
                 </div>

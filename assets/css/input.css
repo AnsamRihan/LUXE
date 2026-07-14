@@ -34,7 +34,7 @@
     --color-muted-foreground: #76777D;
 
     /*Breakpoints*/
-    --breakpoint-xs: 450px;
+    --breakpoint-xs: 500px;
     --breakpoint-xxs: 350px;
 }
 
@@ -66,7 +66,7 @@
 }
 
 @utility container{
-    @apply mx-auto px-10 h-full xs:max-w-135 sm:max-w-135 md:max-w-180 lg:max-w-7xl;
+    @apply mx-auto px-10 h-full max-w-full lg:max-w-7xl;
 }
 
 @utility row{
