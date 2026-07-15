@@ -6,7 +6,7 @@ const fetchCategories = async () => {
         return response.data;
     } catch (error) {
         console.error("Error fetching categories:", error);
-        return [];
+        return null;
     }
 }
 
@@ -23,8 +23,32 @@ const chunkArray = (array, size) => {
 
 const loadCategories = async () => {
     const categories = await fetchCategories();
-
     const shopDropdownHover = document.querySelector("#shopDropdownHover");
+    const categoriesSidebar = document.querySelector(".categories-sidebar");
+    const categoriesSection = document.querySelector(".categories");
+
+    if(categories === null){
+        shopDropdownHover.innerHTML = `
+        <div class="w-full center py-5">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+
+        categoriesSidebar.innerHTML = `
+        <div class="w-full center py-5">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+
+        categoriesSection.innerHTML = `
+        <div class="w-full center py-5 col-span-full">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+    }
     
     const categoryColumns = chunkArray(categories, 6);
     shopDropdownHover.innerHTML = `
@@ -33,12 +57,8 @@ const loadCategories = async () => {
     `;
 
     const categoriesNavlink = document.querySelector(".categories-navbar-link");
-    if (!categoriesNavlink) return;
-    const categoriesSidebar = document.querySelector(".categories-sidebar");
-    if (!categoriesSidebar) return;
-    const categoriesSection = document.querySelector(".categories");
-    if (!categoriesSection) return;
 
+    if (!categoriesNavlink) return;
     categoriesNavlink.innerHTML = categoryColumns.map(column => {
         return `
             <ul class="stack gap-3 items-start">
@@ -56,6 +76,7 @@ const loadCategories = async () => {
         `;
     }).join("");
 
+    if (!categoriesSidebar) return;
     categoriesSidebar.innerHTML = categories.map(category => {
         return `
             <li>
@@ -67,6 +88,7 @@ const loadCategories = async () => {
         `;
     }).join("");
 
+    if (!categoriesSection) return;
     categoriesSection.innerHTML = categories.map(category => {
         return `
             <div class="category uppercase w-full py-8 px-1 text-base border border-[#C6C6CD] rounded-[4px] center
@@ -89,15 +111,25 @@ const fetchProducts = async () => {
         return response.data;
     } catch (error) {
         console.error("Error fetching products:", error);
-        return [];
+        return null;
     }
 }
 
 const loadProducts = async () => {
     const data = await fetchProducts();
+    const productsSection = document.querySelector(".products");
+
+    if(data === null){
+        productsSection.innerHTML = `
+        <div class="w-full center col-span-full">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+    }
+
     const products = data.products;
 
-    const productsSection = document.querySelector(".products");
     if (!productsSection) return;
 
     productsSection.innerHTML = products.map(product => {
