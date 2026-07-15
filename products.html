@@ -209,445 +209,453 @@
     </header>
 
     <main>
-        <!--breadcrumb, cetegory & info-->
-        <section class="py-12 bg-primary-bg">
-            <div class="container stack gap-4 items-start">
-                <!--Breadcrumb nav section-->
-                <nav class="w-full">
-                    <ol class="flex gap-2">
-                        <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
-                            <a href="./index.html" class="capitalize">
-                                Home
-                            </a>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </li>
+        <div class="w-full center py-5" id="loader">
+            <span class="loader"></span>
+        </div>   
 
-                        <li class="flex items-center gap-2">
-                            <span class="capitalize text-primary-foreground text-[12px] font-medium category-name">
-                            </span>
-                        </li>
-                    </ol>
-                </nav>
+        <div id="MainContent" class="hidden">
+            <!--breadcrumb, cetegory & info-->
+            <section class="py-12 bg-primary-bg">
+                <div class="container stack gap-4 items-start">
+                    <!--Breadcrumb nav section-->
+                    <nav class="w-full">
+                        <ol class="flex gap-2">
+                            <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
+                                <a href="./index.html" class="capitalize">
+                                    Home
+                                </a>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </li>
 
-                <!--name & info-->
-                <div class="w-full sm:max-w-[90%] lg:max-w-[60%] xl:max-w-[50%] stack items-start">
-                    <h1 class="category-name text-primary-foreground text-[48px] font-bold leading-[60px] tracking-[-0.96px]
-                    capitalize"></h1>
-                    <p class="text-body-foreground text-base">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, itaque nam aliquid fugit 
-                        distinctio corporis quae impedit.
-                    </p>
+                            <li class="flex items-center gap-2">
+                                <span class="capitalize text-primary-foreground text-[12px] font-medium category-name">
+                                </span>
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <!--name & info-->
+                    <div class="w-full sm:max-w-[90%] lg:max-w-[60%] xl:max-w-[50%] stack items-start">
+                        <h1 class="category-name text-primary-foreground text-[48px] font-bold leading-[60px] tracking-[-0.96px]
+                        capitalize"></h1>
+                        <p class="text-body-foreground text-base">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, itaque nam aliquid fugit 
+                            distinctio corporis quae impedit.
+                        </p>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!--Filters section-->
-        <section class="py-3 bg-primary-bg border-y border-border-color">
-            <div class="container">
-                <div class="w-full flex justify-between items-center gap-2">
-                    <div class="row gap-6">
-                        <!--filter icon-->
-                        <div class="center">
-                            <button type="button" data-drawer-target="filter-drawer" data-drawer-show="filter-drawer"
-                                data-drawer-body-scrolling="false" aria-controls="filter-drawer"
-                                class="inline-flex items-center gap-2 justify-center text-[14px] text-heading-foreground font-medium
-                                 hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none">
-                                <img src="./assets/images/filter_section/filter.svg" alt="Open filter menu" class="w-4.5 h-4.5" />
-                                <span>Filter</span>
-                            </button>
+            <!--Filters section-->
+            <section class="py-3 bg-primary-bg border-y border-border-color">
+                <div class="container">
+                    <div class="w-full flex justify-between items-center gap-2">
+                        <div class="row gap-6">
+                            <!--filter icon-->
+                            <div class="center">
+                                <button type="button" data-drawer-target="filter-drawer" data-drawer-show="filter-drawer"
+                                    data-drawer-body-scrolling="false" aria-controls="filter-drawer"
+                                    class="inline-flex items-center gap-2 justify-center text-[14px] text-heading-foreground font-medium
+                                    hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none">
+                                    <img src="./assets/images/filter_section/filter.svg" alt="Open filter menu" class="w-4.5 h-4.5" />
+                                    <span>Filter</span>
+                                </button>
 
-                            <div id="filter-drawer" class="fixed top-0 left-0 z-51 h-screen transition-transform 
-                                -translate-x-full bg-primary-bg w-87.5 max-xxs:w-full border-e border-border-color-translucent"
-                                tabindex="-1" aria-labelledby="filter-drawer-label">
+                                <div id="filter-drawer" class="fixed top-0 left-0 z-51 h-screen transition-transform 
+                                    -translate-x-full bg-primary-bg w-87.5 max-xxs:w-full border-e border-border-color-translucent"
+                                    tabindex="-1" aria-labelledby="filter-drawer-label">
 
-                                <!--name + exit button inside drawer-->
-                                <div class="w-full p-4 lg:pl-12 bg-primary-bg flex items-center justify-between">
-                                    <h4 class="capitalize font-semibold text-[34px] text-primary-foreground">
-                                        Filter
-                                    </h4>
-                                    
-                                    <button type="button" data-drawer-hide="filter-drawer" aria-controls="filter-drawer"
-                                        class="text-sidebar-foreground bg-transparent hover:text-primary-foreground w-9 h-9 
-                                        flex items-center justify-end">
-                                        <svg class="w-6.25 h-6.25" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
-                                        </svg>
-                                        <span class="sr-only">Close menu</span>
-                                    </button>
-                                </div>
+                                    <!--name + exit button inside drawer-->
+                                    <div class="w-full p-4 lg:pl-12 bg-primary-bg flex items-center justify-between">
+                                        <h4 class="capitalize font-semibold text-[34px] text-primary-foreground">
+                                            Filter
+                                        </h4>
+                                        
+                                        <button type="button" data-drawer-hide="filter-drawer" aria-controls="filter-drawer"
+                                            class="text-sidebar-foreground bg-transparent hover:text-primary-foreground w-9 h-9 
+                                            flex items-center justify-end">
+                                            <svg class="w-6.25 h-6.25" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                    stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                            </svg>
+                                            <span class="sr-only">Close menu</span>
+                                        </button>
+                                    </div>
 
-                                <!--filter list-->
-                                <div class="overflow-y-auto h-[calc(100%-83px)] p-4 lg:pl-12">
-                                    <ul class="font-semibold text-[15px]">
-                                        <!--price filter menu-->
-                                        <li>
-                                            <div class="flex items-center w-full justify-between group cursor-pointer">
-                                                <h4 class="capitalize flex-1 text-xl text-left 
-                                                whitespace-nowrap text-primary-foreground">
-                                                    price
-                                                </h4>
-                                                <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                    aria-controls="priceDropdown" data-collapse-toggle="priceDropdown">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="m19 9-7 7-7-7" />
-                                                </svg>
-                                            </div>
+                                    <!--filter list-->
+                                    <div class="overflow-y-auto h-[calc(100%-83px)] p-4 lg:pl-12">
+                                        <ul class="font-semibold text-[15px]">
+                                            <!--price filter menu-->
+                                            <li>
+                                                <div class="flex items-center w-full justify-between group cursor-pointer">
+                                                    <h4 class="capitalize flex-1 text-xl text-left 
+                                                    whitespace-nowrap text-primary-foreground">
+                                                        price
+                                                    </h4>
+                                                    <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                        aria-controls="priceDropdown" data-collapse-toggle="priceDropdown">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="m19 9-7 7-7-7" />
+                                                    </svg>
+                                                </div>
 
-                                            <div id="priceDropdown" class="my-4 space-y-4">
-                                                <div class="w-full bg-range-bg-color h-1">
-                                                    <div class="bg-primary h-1 relative" style="width: 47%">
-                                                        <div class="absolute -top-2 -inset-e-1 bg-primary w-4.5 h-4.5 circle-range
-                                                        center shadow-md"></div>
-                                                        <div class="absolute -top-2 -inset-s-1 bg-primary w-4.5 h-4.5 circle-range
-                                                        center shadow-md"></div>
+                                                <div id="priceDropdown" class="my-4 space-y-4">
+                                                    <div class="w-full bg-range-bg-color h-1">
+                                                        <div class="bg-primary h-1 relative" style="width: 47%">
+                                                            <div class="absolute -top-2 -inset-e-1 bg-primary w-4.5 h-4.5 circle-range
+                                                            center shadow-md"></div>
+                                                            <div class="absolute -top-2 -inset-s-1 bg-primary w-4.5 h-4.5 circle-range
+                                                            center shadow-md"></div>
+                                                        </div>
+                                                    </div>
+
+                                                    <span class="font-medium text-muted-foreground text-[15px] ">
+                                                        Price from 
+                                                        <span class="font-bold text-primary-foreground">
+                                                            0$
+                                                        </span>
+                                                        to
+                                                        <span class="font-bold text-primary-foreground">
+                                                            52$
+                                                        </span>
+                                                    </span>
+                                                </div>
+
+                                                <div class="w-full mt-6 border-t border-light-border-color"></div>
+                                            </li>
+
+                                            <!--color filter menu-->
+                                            <li class="py-6">
+                                                <div class="flex items-center w-full justify-between group cursor-pointer">
+                                                    <h4 class="capitalize flex-1 text-xl text-left 
+                                                    whitespace-nowrap text-primary-foreground">
+                                                        color
+                                                    </h4>
+                                                    <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                        aria-controls="colorDropdown" data-collapse-toggle="colorDropdown">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="m19 9-7 7-7-7" />
+                                                    </svg>
+                                                </div>
+
+                                                <div id="colorDropdown" class="my-4 space-y-4">
+                                                    <ul class="text-muted-foreground text-[15px] font-medium">
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-black"></div>
+                                                            <span class="capitalize">
+                                                                black
+                                                            </span>
+                                                            <span>
+                                                                (8)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#0000ff]"></div>
+                                                            <span class="capitalize">
+                                                                blue
+                                                            </span>
+                                                            <span>
+                                                                (6)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#7b3f00]"></div>
+                                                            <span class="capitalize">
+                                                                brown
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffd700]"></div>
+                                                            <span class="capitalize">
+                                                                gold
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#808080]"></div>
+                                                            <span class="capitalize">
+                                                                gray
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#00ff00]"></div>
+                                                            <span class="capitalize">
+                                                                green
+                                                            </span>
+                                                            <span>
+                                                                (3)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ff00ff]"></div>
+                                                            <span class="capitalize">
+                                                                magenta
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#000080]"></div>
+                                                            <span class="capitalize">
+                                                                navy
+                                                            </span>
+                                                            <span>
+                                                                (2)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#151b54]"></div>
+                                                            <span class="capitalize">
+                                                                night blue
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffc0cb]"></div>
+                                                            <span class="capitalize">
+                                                                pink
+                                                            </span>
+                                                            <span>
+                                                                (4)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffffff]"></div>
+                                                            <span class="capitalize">
+                                                                piolet
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#800080]"></div>
+                                                            <span class="capitalize">
+                                                                purple
+                                                            </span>
+                                                            <span>
+                                                                (2)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ff0000]"></div>
+                                                            <span class="capitalize">
+                                                                red
+                                                            </span>
+                                                            <span>
+                                                                (5)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#96bdc6]"></div>
+                                                            <span class="capitalize">
+                                                                sky
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ee82ee]"></div>
+                                                            <span class="capitalize">
+                                                                violet
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-white"></div>
+                                                            <span class="capitalize">
+                                                                white
+                                                            </span>
+                                                            <span>
+                                                                (1)
+                                                            </span>
+                                                        </li>
+                                                        <li class="p-1.25 flex gap-2">
+                                                            <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffff00]"></div>
+                                                            <span class="capitalize">
+                                                                yellow
+                                                            </span>
+                                                            <span>
+                                                                (4)
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="w-full mt-6 border-t border-light-border-color"></div>
+                                            </li>
+
+                                            <!--size filter menu-->
+                                            <li class="pb-6">
+                                                <div class="flex items-center w-full justify-between group cursor-pointer">
+                                                    <h4 class="capitalize flex-1 text-xl text-left 
+                                                    whitespace-nowrap text-primary-foreground">
+                                                        Size
+                                                    </h4>
+                                                    <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                        aria-controls="sizeDropdown" data-collapse-toggle="sizeDropdown">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="m19 9-7 7-7-7" />
+                                                    </svg>
+                                                </div>
+
+                                                <div id="sizeDropdown" class="my-4 space-y-4">
+                                                    <div class="flex flex-wrap gap-2.5">
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            sm (4)
+                                                        </button>
+
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            small (1)
+                                                        </button>
+                                                        
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            md (5)
+                                                        </button>
+
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            medium (1)
+                                                        </button>
+
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            lg (5)
+                                                        </button>
+
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            large (1)
+                                                        </button>
+
+                                                        <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
+                                                        font-medium text-[14px] text-muted-foreground capitalize">
+                                                            xl (1)
+                                                        </button>
                                                     </div>
                                                 </div>
 
-                                                <span class="font-medium text-muted-foreground text-[15px] ">
-                                                    Price from 
-                                                    <span class="font-bold text-primary-foreground">
-                                                        0$
-                                                    </span>
-                                                    to
-                                                    <span class="font-bold text-primary-foreground">
-                                                        52$
-                                                    </span>
-                                                </span>
-                                            </div>
+                                                <div class="w-full mt-6 border-t border-light-border-color"></div>
+                                            </li>
 
-                                            <div class="w-full mt-6 border-t border-light-border-color"></div>
-                                        </li>
-
-                                        <!--color filter menu-->
-                                        <li class="py-6">
-                                            <div class="flex items-center w-full justify-between group cursor-pointer">
-                                                <h4 class="capitalize flex-1 text-xl text-left 
-                                                whitespace-nowrap text-primary-foreground">
-                                                    color
-                                                </h4>
-                                                <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                    aria-controls="colorDropdown" data-collapse-toggle="colorDropdown">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="m19 9-7 7-7-7" />
-                                                </svg>
-                                            </div>
-
-                                            <div id="colorDropdown" class="my-4 space-y-4">
-                                                <ul class="text-muted-foreground text-[15px] font-medium">
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-black"></div>
-                                                        <span class="capitalize">
-                                                            black
-                                                        </span>
-                                                        <span>
-                                                            (8)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#0000ff]"></div>
-                                                        <span class="capitalize">
-                                                            blue
-                                                        </span>
-                                                        <span>
-                                                            (6)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#7b3f00]"></div>
-                                                        <span class="capitalize">
-                                                            brown
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffd700]"></div>
-                                                        <span class="capitalize">
-                                                            gold
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#808080]"></div>
-                                                        <span class="capitalize">
-                                                            gray
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#00ff00]"></div>
-                                                        <span class="capitalize">
-                                                            green
-                                                        </span>
-                                                        <span>
-                                                            (3)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ff00ff]"></div>
-                                                        <span class="capitalize">
-                                                            magenta
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#000080]"></div>
-                                                        <span class="capitalize">
-                                                            navy
-                                                        </span>
-                                                        <span>
-                                                            (2)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#151b54]"></div>
-                                                        <span class="capitalize">
-                                                            night blue
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffc0cb]"></div>
-                                                        <span class="capitalize">
-                                                            pink
-                                                        </span>
-                                                        <span>
-                                                            (4)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffffff]"></div>
-                                                        <span class="capitalize">
-                                                            piolet
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#800080]"></div>
-                                                        <span class="capitalize">
-                                                            purple
-                                                        </span>
-                                                        <span>
-                                                            (2)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ff0000]"></div>
-                                                        <span class="capitalize">
-                                                            red
-                                                        </span>
-                                                        <span>
-                                                            (5)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#96bdc6]"></div>
-                                                        <span class="capitalize">
-                                                            sky
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ee82ee]"></div>
-                                                        <span class="capitalize">
-                                                            violet
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-white"></div>
-                                                        <span class="capitalize">
-                                                            white
-                                                        </span>
-                                                        <span>
-                                                            (1)
-                                                        </span>
-                                                    </li>
-                                                    <li class="p-1.25 flex gap-2">
-                                                        <div class="w-5 h-5 circle border border-[#cccccc] bg-[#ffff00]"></div>
-                                                        <span class="capitalize">
-                                                            yellow
-                                                        </span>
-                                                        <span>
-                                                            (4)
-                                                        </span>
-                                                    </li>
-                                                </ul>
-                                            </div>
-
-                                            <div class="w-full mt-6 border-t border-light-border-color"></div>
-                                        </li>
-
-                                        <!--size filter menu-->
-                                        <li class="pb-6">
-                                            <div class="flex items-center w-full justify-between group cursor-pointer">
-                                                <h4 class="capitalize flex-1 text-xl text-left 
-                                                whitespace-nowrap text-primary-foreground">
-                                                    Size
-                                                </h4>
-                                                <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                    aria-controls="sizeDropdown" data-collapse-toggle="sizeDropdown">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="m19 9-7 7-7-7" />
-                                                </svg>
-                                            </div>
-
-                                            <div id="sizeDropdown" class="my-4 space-y-4">
-                                                <div class="flex flex-wrap gap-2.5">
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        sm (4)
-                                                    </button>
-
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        small (1)
-                                                    </button>
-                                                    
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        md (5)
-                                                    </button>
-
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        medium (1)
-                                                    </button>
-
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        lg (5)
-                                                    </button>
-
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        large (1)
-                                                    </button>
-
-                                                    <button class="bg-transparent p-2 rounded-[3px] border border-light-border-color
-                                                    font-medium text-[14px] text-muted-foreground capitalize">
-                                                        xl (1)
-                                                    </button>
+                                            <!--availability filter menu-->
+                                            <li class="pb-6">
+                                                <div class="flex items-center w-full justify-between group cursor-pointer">
+                                                    <h4 class="capitalize flex-1 text-xl text-left 
+                                                    whitespace-nowrap text-primary-foreground">
+                                                        availability
+                                                    </h4>
+                                                    <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                        width="24" height="24" fill="none" viewBox="0 0 24 24"
+                                                        aria-controls="availabilityDropdown" data-collapse-toggle="availabilityDropdown">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                            stroke-width="2" d="m19 9-7 7-7-7" />
+                                                    </svg>
                                                 </div>
-                                            </div>
 
-                                            <div class="w-full mt-6 border-t border-light-border-color"></div>
-                                        </li>
-
-                                        <!--availability filter menu-->
-                                        <li class="pb-6">
-                                            <div class="flex items-center w-full justify-between group cursor-pointer">
-                                                <h4 class="capitalize flex-1 text-xl text-left 
-                                                whitespace-nowrap text-primary-foreground">
-                                                    availability
-                                                </h4>
-                                                <svg class="w-5.5 h-5.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                    width="24" height="24" fill="none" viewBox="0 0 24 24"
-                                                    aria-controls="availabilityDropdown" data-collapse-toggle="availabilityDropdown">
-                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="m19 9-7 7-7-7" />
-                                                </svg>
-                                            </div>
-
-                                            <div id="availabilityDropdown" class="my-4 space-y-4">
-                                                <!--Product wrap-->
-                                                <div class="w-full flex items-center gap-2">
-                                                    <input id="wrap-checkbox" type="checkbox" value="" class="w-3.75 h-3.75 text-success text-[19px] border 
-                                                    border-light-border-color rounded-[3.75px] bg-primary-bg focus:ring-2 focus:ring-success">
-                                                    <label for="wrap-checkbox" class="select-none text-[15px] font-medium text-muted-foreground">
-                                                        In Stock (15)
-                                                    </label>
+                                                <div id="availabilityDropdown" class="my-4 space-y-4">
+                                                    <!--Product wrap-->
+                                                    <div class="w-full flex items-center gap-2">
+                                                        <input id="wrap-checkbox" type="checkbox" value="" class="w-3.75 h-3.75 text-success text-[19px] border 
+                                                        border-light-border-color rounded-[3.75px] bg-primary-bg focus:ring-2 focus:ring-success">
+                                                        <label for="wrap-checkbox" class="select-none text-[15px] font-medium text-muted-foreground">
+                                                            In Stock (15)
+                                                        </label>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="w-full mt-6 border-t border-light-border-color"></div>
-                                        </li>
-                                    </ul>
+                                                <div class="w-full mt-6 border-t border-light-border-color"></div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
+                            </div>
+
+                            <!--seperation break-->
+                            <div class="w-px h-6 bg-border-color hidden sm:block"></div>
+
+                            <!--layout & arrangment-->
+                            <div class="row gap-1 hidden sm:block">
+                                <button class="p-2.75 rounded-xxs bg-dark-bg hover:bg-primary transition-all duration-150 ease-in-out">
+                                    <img src="./assets/images/filter_section/grid.svg" alt="Grid Layout">
+                                </button>
+
+                                <button class="px-2.75 py-3 rounded-xxs hover:bg-border-color/80 transition-all duration-150 ease-in-out">
+                                    <img src="./assets/images/filter_section/list.svg" alt="List Layout">
+                                </button>
                             </div>
                         </div>
 
-                        <!--seperation break-->
-                        <div class="w-px h-6 bg-border-color hidden sm:block"></div>
+                        <div class="row gap-0">
+                            <span class="text-[14px] text-body-foreground tracking-[0.7px] font-medium hidden md:block">
+                                Sort by:
+                            </span>
 
-                        <!--layout & arrangment-->
-                        <div class="row gap-1 hidden sm:block">
-                            <button class="p-2.75 rounded-xxs bg-dark-bg hover:bg-primary transition-all duration-150 ease-in-out">
-                                <img src="./assets/images/filter_section/grid.svg" alt="Grid Layout">
-                            </button>
-
-                            <button class="px-2.75 py-3 rounded-xxs hover:bg-border-color/80 transition-all duration-150 ease-in-out">
-                                <img src="./assets/images/filter_section/list.svg" alt="List Layout">
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="row gap-0">
-                        <span class="text-[14px] text-body-foreground tracking-[0.7px] font-medium hidden md:block">
-                            Sort by:
-                        </span>
-
-                        <div class="w-45">
-                            <select id="sortBy" class="bg-transparent h-12
-                            border-none text-primary-foreground text-[14px] font-medium tracking-[0.4px]
-                            focus:ring-px focus:ring-primary block w-full py-2.5 pl-4.5 pr-5.5
-                            placeholder:text-muted-foreground capitalize">
-                                <option value="az" selected>Alphabetically, A-Z</option>
-                                <option value="za">Alphabetically, Z-A</option>
-                                <option value="lowToHigh">Price, low to high</option>
-                                <option value="highToLow">Price, high to low</option>
-                            </select>
+                            <div class="w-45">
+                                <select id="sortBy" class="bg-transparent h-12
+                                border-none text-primary-foreground text-[14px] font-medium tracking-[0.4px]
+                                focus:ring-px focus:ring-primary block w-full py-2.5 pl-4.5 pr-5.5
+                                placeholder:text-muted-foreground capitalize">
+                                    <option value="az" selected>Alphabetically, A-Z</option>
+                                    <option value="za">Alphabetically, Z-A</option>
+                                    <option value="lowToHigh">Price, low to high</option>
+                                    <option value="highToLow">Price, high to low</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!--products section-->
-        <section class="bg-primary-bg py-12">
-            <div class="container">
-                <div class="products grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mt-16">
-                    
+            <!--products section-->
+            <section class="bg-primary-bg py-12">
+                <div class="container">
+                    <div class="products grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mt-16">
+                        
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!--pagination section-->
-        <section class="py-8 bg-primary-bg border-t border-border-color">
-            <div class="container">
-                <div class="flex justify-between text-[14px] font-medium text-body-foreground">
-                    <button id="prevBtn" class="bg-transparent border-none capitalize center gap-2">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Previous
-                    </button>
+            <!--pagination section-->
+            <section class="py-8 bg-primary-bg border-t border-border-color">
+                <div class="container">
+                    <div class="flex justify-between text-[14px] font-medium text-body-foreground">
+                        <button id="prevBtn" class="bg-transparent border-none capitalize center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i>
+                            Previous
+                        </button>
 
-                    <button id="nextBtn" class="bg-transparent border-none capitalize center gap-2">
-                        Next
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                        <button id="nextBtn" class="bg-transparent border-none capitalize center gap-2">
+                            Next
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
+
+        
     </main>
 
     <footer class="bg-footer-bg pt-16 pb-8 border-t border-border-color">

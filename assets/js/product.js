@@ -96,7 +96,6 @@ const pageContent = document.querySelector("#MainContent");
 // Fetch product from API
 const fetchProduct = async () => {
     try {
-
         loader.classList.remove("hidden");
         pageContent.classList.add("hidden");
 
