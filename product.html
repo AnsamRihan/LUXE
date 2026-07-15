@@ -144,7 +144,9 @@
 
                                         <div id="shopDropdown" class="hidden space-y-4 bg-sidebar-dropdown-menu-color">
                                             <ul class="categories-sidebar">
-                                                
+                                                <li class="w-full center py-5">
+                                                    <span class="loader"></span>
+                                                </li>  
                                             </ul>
                                         </div>
                                     </li>
@@ -199,175 +201,184 @@
 
                 <!--Shop navbar link dropdown menu-->
                 <div id="shopDropdownHover" class="hidden mt-1 bg-primary-bg border-none border-y min-w-screen pt-5 shadow-lg">
+                    <div class="w-full center py-5">
+                        <span class="loader"></span>
+                    </div>   
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
-        <!--breadcrumb-->
-        <section class="pt-8 pb-4">
-            <div class="container">
-                <!--Breadcrumb nav section-->
-                <nav class="w-full">
-                    <ol class="flex gap-2">
-                        <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
-                            <a href="./index.html" class="capitalize">
-                                Home
-                            </a>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </li>
+        <div class="w-full center py-5" id="loader">
+            <span class="loader"></span>
+        </div>   
 
-                        <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
-                            <a href="#" class="capitalize product-category">
-                            </a>
-                            <i class="fa-solid fa-angle-right"></i>
-                        </li>
+        <div id="MainContent" class="hidden">
+            <!--breadcrumb-->
+            <section class="pt-8 pb-4">
+                <div class="container">
+                    <!--Breadcrumb nav section-->
+                    <nav class="w-full">
+                        <ol class="flex gap-2">
+                            <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
+                                <a href="./index.html" class="capitalize">
+                                    Home
+                                </a>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </li>
 
-                        <li class="flex items-center gap-2">
-                            <span class="capitalize text-primary-foreground text-[12px] font-medium product-name">
-                            </span>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
-        </section>
+                            <li class="text-muted-foreground text-[12px] hover:text-primary-foreground transition-all duration-200 ease-in-out">
+                                <a href="#" class="capitalize product-category">
+                                </a>
+                                <i class="fa-solid fa-angle-right"></i>
+                            </li>
 
-        <!--product section-->
-        <section class="pb-16">
-            <div class="container">
-                <div class="grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] gap-6 lg:gap-16">
-                    <!--Product Images-->
-                    <div class="stack gap-4">
-                        <div class="overflow-hidden aspect-[4/5] group/product w-full bg-white center rounded-[1px]
-                        border border-border-color">
-                            <img src="" alt=""
-                            class="product-img w-full object-cover transition-transform duration-500 ease-out 
-                            group-hover/product:scale-110"/>
+                            <li class="flex items-center gap-2">
+                                <span class="capitalize text-primary-foreground text-[12px] font-medium product-name">
+                                </span>
+                            </li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <!--product section-->
+            <section class="pb-16">
+                <div class="container">
+                    <div class="grid grid-cols-1 sm:grid-cols-[1.2fr_1fr] gap-6 lg:gap-16">
+                        <!--Product Images-->
+                        <div class="stack gap-4">
+                            <div class="overflow-hidden aspect-[4/5] group/product w-full bg-white center rounded-[1px]
+                            border border-border-color">
+                                <img src="" alt=""
+                                class="product-img w-full object-cover transition-transform duration-500 ease-out 
+                                group-hover/product:scale-110"/>
+                            </div>
+
+                            <!--Other images-->
+                            <div class="grid grid-cols-4 gap-4.5 other-images"></div>
                         </div>
 
-                        <!--Other images-->
-                        <div class="grid grid-cols-4 gap-4.5 other-images"></div>
-                    </div>
+                        <!--Product Info-->
+                        <div class="stack justify-between">
+                            <div class="stack items-start w-full gap-0 sm:gap-2">
+                                <!--brand-->
+                                <span class="product-brand tracking-[1.4px] uppercase text-body-foreground text-[14px] font-medium"></span>
 
-                    <!--Product Info-->
-                    <div class="stack justify-between">
-                        <div class="stack items-start w-full gap-0 sm:gap-2">
-                            <!--brand-->
-                            <span class="product-brand tracking-[1.4px] uppercase text-body-foreground text-[14px] font-medium"></span>
+                                <!--Name-->
+                                <h1 class="product-name tracking-[-0.96px] leading-heading-none font-bold text-primary-foreground
+                                text-[36px] sm:text-[40px] lg:text-[48px]"></h1>
 
-                            <!--Name-->
-                            <h1 class="product-name tracking-[-0.96px] leading-heading-none font-bold text-primary-foreground
-                            text-[36px] sm:text-[40px] lg:text-[48px]"></h1>
-
-                            <!--Rating-->
-                            <div class="stars-info row items-start gap-3 py-2 sm:py-4"></div>
-                            
-                            <!--Price-->
-                            <span class="product-price font-semibold text-[30px] text-primary-foreground tracking-[-0.3px]"></span>
-
-                            <!--stock-->
-                            <div class="row items-start">
-                                <div class="center h-full">
-                                    <div class="bg-primary circle w-2 h-2"></div>
-                                </div>
-                                <span class="text-base font-medium text-primary capitalize stock-availability"></span>
-                            </div>
-                        </div>
-
-                        <div class="stack gap-12 w-full">
-                            <!--Buttons-->
-                            <div class="stack w-full gap-3">
-                                <button class="btn-dark uppercase w-full text-[14px] font-bold tracking-[0.7px] py-4">
-                                    add to cart
-                                </button>
-                                 <button class="btn-transparent uppercase w-full text-[14px] font-bold tracking-[0.7px] py-3.75">
-                                    BUY IT NOW
-                                </button>
-                                <!--Free shipping-->
-                                <div class="pt-2 row text-body-foreground text-xs">
-                                    <i class="fa-regular fa-truck"></i>
-                                    <span>Free worldwide shipping on all orders over $500</span>
-                                </div>
-                            </div>
-
-                            <!--Dropdowns-->
-                            <div class="stack gap-0 w-full">
-                                <div class="py-4 border-t border-border-color row justify-between w-full text-sm font-bold text-heading-foreground cursor-pointer">
-                                    <span class="uppercase tracking-[1.4px]">
-                                        TECHNICAL SPECS
-                                    </span>
-                                    <i class="fa-solid fa-angle-down"></i>
-                                </div>
-                                <div class="py-4 border-t border-border-color row justify-between w-full text-sm font-bold text-heading-foreground cursor-pointer">
-                                    <span class="uppercase tracking-[1.4px]">
-                                        SUSTAINABILITY
-                                    </span>
-                                    <i class="fa-solid fa-angle-down"></i>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!--Description Section-->
-        <section class="pb-16">
-            <div class="container stack gap-8 items-start">
-                <div class="border-b border-border-color w-full row items-start gap-6 md:gap-12 text-body-foreground
-                text-sm font-medium tracking-[0.7px]">
-                    <span class="text-primary-foreground font-bold h-full border-b-2 border-black
-                    hover:text-primary hover:border-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer">
-                        Description
-                    </span>
-
-                    <span class="hover:text-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer">
-                        Specifications
-                    </span>
-
-                    <span class="hover:text-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer hidden xs:block">
-                        Shipping & Returns
-                    </span>
-                </div>
-
-                <div class="product-description text-base sm:text-lg text-body-foreground"></div>
-            </div>
-        </section>
-
-        <section class="pb-16">
-            <div class="container ">
-                <div class="grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-6 sm:gap-12 pt-12 border-t border-border-color">
-                    <div class="stack gap-6 items-start w-full">
-                        <h2 class="text-[26px] sm:text-3xl font-semibold text-heading-foreground tracking-[-0.3px] capitalize">
-                            Customer Reviews
-                        </h2>
-                        <!--Rating-->
-                        <div class="row justify-start gap-3">
-                            <div class="product-rating center text-4xl md:text-5xl font-bold text-heading-foreground tracking-[-0.96px]">
-                                5.6
-                            </div>
-                            <div class="stars-review stack items-start gap-1">
+                                <!--Rating-->
+                                <div class="stars-info row items-start gap-3 py-2 sm:py-4"></div>
                                 
+                                <!--Price-->
+                                <span class="product-price font-semibold text-[30px] text-primary-foreground tracking-[-0.3px]"></span>
+
+                                <!--stock-->
+                                <div class="row items-start">
+                                    <div class="center h-full">
+                                        <div class="bg-primary circle w-2 h-2"></div>
+                                    </div>
+                                    <span class="text-base font-medium text-primary capitalize stock-availability"></span>
+                                </div>
                             </div>
+
+                            <div class="stack gap-12 w-full">
+                                <!--Buttons-->
+                                <div class="stack w-full gap-3">
+                                    <button class="btn-dark uppercase w-full text-[14px] font-bold tracking-[0.7px] py-4">
+                                        add to cart
+                                    </button>
+                                    <button class="btn-transparent uppercase w-full text-[14px] font-bold tracking-[0.7px] py-3.75">
+                                        BUY IT NOW
+                                    </button>
+                                    <!--Free shipping-->
+                                    <div class="pt-2 row text-body-foreground text-xs">
+                                        <i class="fa-regular fa-truck"></i>
+                                        <span>Free worldwide shipping on all orders over $500</span>
+                                    </div>
+                                </div>
+
+                                <!--Dropdowns-->
+                                <div class="stack gap-0 w-full">
+                                    <div class="py-4 border-t border-border-color row justify-between w-full text-sm font-bold text-heading-foreground cursor-pointer">
+                                        <span class="uppercase tracking-[1.4px]">
+                                            TECHNICAL SPECS
+                                        </span>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                    <div class="py-4 border-t border-border-color row justify-between w-full text-sm font-bold text-heading-foreground cursor-pointer">
+                                        <span class="uppercase tracking-[1.4px]">
+                                            SUSTAINABILITY
+                                        </span>
+                                        <i class="fa-solid fa-angle-down"></i>
+                                    </div>
+                                </div>
+                            </div>    
                         </div>
-                        <button class="btn-transparent uppercase w-full font-bold sm:px-1 py-4 text-sm">
-                            WRITE A REVIEW
-                        </button>
-                    </div>
-
-                    <div class="stack gap-12 items-start w-full">
-                        <div class="product-reviews stack gap-12 items-start w-full"></div>
-
-                        <button class="row justify-start text-sm text-primary-foreground font-bold tracking-[0.7px] hover:text-primary
-                        transition-all duration-150 ease-in-out">
-                            <span class="uppercase">LOAD MORE REVIEWS</span>
-                            <i class="fa-solid fa-angle-down"></i>
-                        </button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <!--Description Section-->
+            <section class="pb-16">
+                <div class="container stack gap-8 items-start">
+                    <div class="border-b border-border-color w-full row items-start gap-6 md:gap-12 text-body-foreground
+                    text-sm font-medium tracking-[0.7px]">
+                        <span class="text-primary-foreground font-bold h-full border-b-2 border-black
+                        hover:text-primary hover:border-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer">
+                            Description
+                        </span>
+
+                        <span class="hover:text-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer">
+                            Specifications
+                        </span>
+
+                        <span class="hover:text-primary transition-all duration-150 ease-in-out pb-4 cursor-pointer hidden xs:block">
+                            Shipping & Returns
+                        </span>
+                    </div>
+
+                    <div class="product-description text-base sm:text-lg text-body-foreground"></div>
+                </div>
+            </section>
+
+            <section class="pb-16">
+                <div class="container ">
+                    <div class="grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-6 sm:gap-12 pt-12 border-t border-border-color">
+                        <div class="stack gap-6 items-start w-full">
+                            <h2 class="text-[26px] sm:text-3xl font-semibold text-heading-foreground tracking-[-0.3px] capitalize">
+                                Customer Reviews
+                            </h2>
+                            <!--Rating-->
+                            <div class="row justify-start gap-3">
+                                <div class="product-rating center text-4xl md:text-5xl font-bold text-heading-foreground tracking-[-0.96px]">
+                                    5.6
+                                </div>
+                                <div class="stars-review stack items-start gap-1">
+                                    
+                                </div>
+                            </div>
+                            <button class="btn-transparent uppercase w-full font-bold sm:px-1 py-4 text-sm">
+                                WRITE A REVIEW
+                            </button>
+                        </div>
+
+                        <div class="stack gap-12 items-start w-full">
+                            <div class="product-reviews stack gap-12 items-start w-full"></div>
+
+                            <button class="row justify-start text-sm text-primary-foreground font-bold tracking-[0.7px] hover:text-primary
+                            transition-all duration-150 ease-in-out">
+                                <span class="uppercase">LOAD MORE REVIEWS</span>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>  
     </main>
     
     <footer class="bg-footer-bg pt-16 pb-8 border-t border-border-color">

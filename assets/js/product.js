@@ -11,7 +11,7 @@ const fetchCategories = async () => {
         return response.data;
     } catch (error) {
         console.error("Error fetching categories:", error);
-        return [];
+        return null;
     }
 }
 
@@ -28,8 +28,24 @@ const chunkArray = (array, size) => {
 
 const loadCategories = async () => {
     const categories = await fetchCategories();
-
     const shopDropdownHover = document.querySelector("#shopDropdownHover");
+    const categoriesSidebar = document.querySelector(".categories-sidebar");
+
+    if(categories === null){
+        shopDropdownHover.innerHTML = `
+        <div class="w-full center py-5">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+
+        categoriesSidebar.innerHTML = `
+        <div class="w-full center py-5">
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        </div>`;
+    }
     
     const categoryColumns = chunkArray(categories, 6);
     shopDropdownHover.innerHTML = `
@@ -39,8 +55,6 @@ const loadCategories = async () => {
 
     const categoriesNavlink = document.querySelector(".categories-navbar-link");
     if (!categoriesNavlink) return;
-    const categoriesSidebar = document.querySelector(".categories-sidebar");
-    if (!categoriesSidebar) return;
 
     categoriesNavlink.innerHTML = categoryColumns.map(column => {
         return `
@@ -59,6 +73,7 @@ const loadCategories = async () => {
         `;
     }).join("");
 
+    if (!categoriesSidebar) return;
     categoriesSidebar.innerHTML = categories.map(category => {
         return `
             <li>
@@ -75,16 +90,31 @@ loadCategories();
 
 /*----------------get product----------------*/
 
+const loader = document.querySelector("#loader");
+const pageContent = document.querySelector("#MainContent");
+
 // Fetch product from API
 const fetchProduct = async () => {
     try {
+
+        loader.classList.remove("hidden");
+        pageContent.classList.add("hidden");
+
         const response = await axios.get(
             `https://dummyjson.com/products/${productID}`
         );
+
+        pageContent.classList.remove("hidden");
+        loader.classList.add("hidden");
         return response.data;
 
     } catch (error) {
         console.error("Error fetching products:", error);
+        loader.innerHTML = `
+            <span class="text-base text-danger">
+                Error Retrieving Data!
+            </span>
+        `;
         return [];
     }
 }
