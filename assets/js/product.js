@@ -161,7 +161,6 @@ const loadProduct = async () => {
     }
 
     const productRatingInfoTag = document.querySelector(".stars-info");
-    console.log();
     productRatingInfoTag.innerHTML = `
         <div class="text-primary text-[12px] sm:text-sm row gap-1">
             ${stars}
@@ -180,6 +179,87 @@ const loadProduct = async () => {
     /*Product Description*/
     const productDescriptionTag = document.querySelector(".product-description");
     productDescriptionTag.textContent = product.description;
+
+    /*Product Review Rating*/
+    const productRatingTag = document.querySelector(".product-rating");
+    productRatingTag.textContent = product.rating;
+    const productStarsReview = document.querySelector(".stars-review");
+    productStarsReview.innerHTML = `
+        <div class="text-primary text-base row gap-0">
+            ${stars}
+        </div>
+        <span class="text-body-foreground text-xs">Based on ${product.reviews.length} reviews</span>
+    `
+
+    /*Customer Review*/
+    const ProductReviewsTag = document.querySelector(".product-reviews");
+    ProductReviewsTag.innerHTML = product.reviews.slice(0, 3).map(customerReview => {
+        /*Review Stars Rating*/
+        let reviewStars = "";
+        const filledReviewStars = Math.round(customerReview.rating);
+
+        for (let i = 0; i < 5; i++) {
+            if (i < filledReviewStars) {
+                reviewStars += `<i class="fa-solid fa-star"></i>`;
+            } else {
+                reviewStars += `<i class="fa-regular fa-star"></i>`;
+            }
+        }
+        /*--------------------------------------------------------*/
+        /*Review Date*/
+        const date = customerReview.date;
+
+        const formattedDate = new Date(date).toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        });
+
+        /*--------------------------------------------------------*/
+        /*Shortened Name*/
+        const initials = customerReview.reviewerName
+            .trim()
+            .split(/\s+/)
+            .map(word => word[0])
+            .join("")
+            .toUpperCase();
+        /*--------------------------------------------------------*/
+
+        console.log(customerReview);
+        return `
+        <div class="stack gap-4 items-start w-full border-b border-border-color pb-12">
+            <div class="flex gap-2.5 justify-between w-full text-xs">
+                <div class="text-primary row gap-0">
+                    ${reviewStars}
+                </div>
+                <span class="text-body-foreground">
+                    ${formattedDate}
+                </span>
+            </div>
+
+            <div class="row gap-3 justify-start pt-2">
+                <div class="bg-image-bg rounded-[12px] center py-2 px-[9.5px] text-base font-bold text-primary-foreground">
+                    ${initials}
+                </div>
+                <div class="stack items-start gap-0">
+                    <p class="text-sm font-bold tracking-[0.7px] text-heading-foreground">
+                        ${customerReview.reviewerName}
+                    </p>
+                    <div class="row justify-start gap-1">
+                        <img src="./assets/images/review_section/verified.svg" alt="Verified Buyer">
+                        <span class="text-primary text-xs">
+                            Verified Buyer
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-base text-body-foreground">
+                ${customerReview.comment}
+            </p>
+        </div>
+        `;
+    }).join("");
 }
 
 loadProduct();
